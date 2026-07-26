@@ -6,6 +6,8 @@ btn.addEventListener("click", function () {
 
     status.innerHTML = "🟡 AI Monitoring Started...";
 
+    document.getElementById("sosTime").innerHTML = new Date().toLocaleTimeString();
+    
     document.getElementById("battery").innerHTML = "85%";
     
     document.getElementById("running").innerHTML = "Running Detected";
