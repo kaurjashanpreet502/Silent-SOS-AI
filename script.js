@@ -67,7 +67,14 @@ btn.addEventListener("click", function () {
                 "⏰ Time: " + new Date().toLocaleTimeString() +
                 "<br>🔋 Battery: " + document.getElementById("battery").innerHTML +
                 "<br>🤖 AI Confidence: " + document.getElementById("confidence").innerHTML;
-
+                        
+                document.getElementById("messageBox").innerHTML =
+                "📩 Emergency Message Preview:<br><br>" +
+                "🚨 Possible fall detected<br>" +
+                "📍 Location shared<br>" +
+                "🔋 Battery: " + document.getElementById("battery").innerHTML +
+                "<br>🤖 AI Confidence: " + document.getElementById("confidence").innerHTML;
+                        
                         document.getElementById("contactStatus").innerHTML = "Alert Sent ✅";
                         alert(
                         "🚨 EMERGENCY ALERT SENT\n\n" +
