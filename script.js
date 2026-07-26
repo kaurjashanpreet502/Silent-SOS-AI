@@ -6,6 +6,8 @@ btn.addEventListener("click", function () {
 
     status.innerHTML = "🟡 AI Monitoring Started...";
 
+    document.getElementById("battery").innerHTML = "85%";
+    
     document.getElementById("running").innerHTML = "Running Detected";
     document.getElementById("running").style.color = "red";
     document.getElementById("risk").innerHTML = "HIGH";
@@ -28,6 +30,7 @@ btn.addEventListener("click", function () {
                 result.innerHTML = "🚨 No Movement Detected!";
                 document.getElementById("movement").innerHTML = "No Movement Detected";
                 document.getElementById("movement").style.color = "red"; 
+                document.getElementById("movement").classList.add("high-risk");
                 
                 status.innerHTML = "🔴 HIGH RISK";
 
