@@ -84,8 +84,8 @@ btn.addEventListener("click", function () {
                         "🤖 AI Confidence: " + document.getElementById("confidence").innerHTML + "\n" +
                         "⏰ Time: " + new Date().toLocaleTimeString() + "\n\n" +
                         "📞 Emergency Contact Notified"
-                       );;
-
+                    });
+                    
                 } else {
 
                     result.innerHTML =
