@@ -15,9 +15,6 @@ btn.addEventListener("click", function () {
     document.getElementById("risk").innerHTML = "HIGH";
     document.getElementById("risk").style.color = "red";
     document.getElementById("safeBtn").style.display = "inline-block";
-
-    document.getElementById("risk").classList.add("high-risk");
-    document.getElementById("running").classList.add("high-risk");
     
     setTimeout(function () {
 
@@ -32,10 +29,10 @@ btn.addEventListener("click", function () {
                 result.innerHTML = "🚨 No Movement Detected!";
                 document.getElementById("movement").innerHTML = "No Movement Detected";
                 document.getElementById("movement").style.color = "red"; 
-                document.getElementById("movement").classList.add("high-risk");
                 
                 status.innerHTML = "🔴 HIGH RISK";
-
+                status.style.color = "red";
+                
             setTimeout(function(){
 
                 if(document.getElementById("safeBtn").style.display=="none")
