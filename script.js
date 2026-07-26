@@ -52,7 +52,9 @@ btn.addEventListener("click", function () {
                         result.innerHTML =
                         "🚨 Auto SOS Activated!<br><br>" +
                         "📍 Latitude: " + position.coords.latitude + "<br>" +
-                        "📍 Longitude: " + position.coords.longitude;
+                        "📍 Longitude: " + position.coords.longitude +
+                        "<br>⏰ Time: " + new Date().toLocaleTimeString() +
+                        "<br>🔋 Battery: " + document.getElementById("battery").innerHTML;
 
                         document.getElementById("contactStatus").innerHTML = "Alert Sent ✅";
                         alert("🚨 Auto SOS Sent!\n📍 Live Location Shared\n📞 Emergency Contact Alerted");
