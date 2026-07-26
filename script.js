@@ -3,8 +3,10 @@ const status = document.getElementById("status");
 const result = document.getElementById("result");
 
 let sosCancelled = false;
+let timer1, timer2, timer3;
 
 btn.addEventListener("click", function () {
+    sosCancelled = false;
 
     status.innerHTML = "🟡 AI Monitoring Started...";
 
@@ -18,15 +20,15 @@ btn.addEventListener("click", function () {
     document.getElementById("risk").style.color = "red";
     document.getElementById("safeBtn").style.display = "inline-block";
     
-    setTimeout(function () {
+   timer1 = setTimeout(function () {
 
         result.innerHTML = "⚠️ Fall Detected!";
 
-        setTimeout(function () {
+   timer2 = setTimeout(function () {
 
             result.innerHTML = "🧍 Checking Movement...";
 
-            setTimeout(function () {
+   timer3 = setTimeout(function () {
 
                 result.innerHTML = "🚨 No Movement Detected!";
                 document.getElementById("movement").innerHTML = "No Movement Detected";
@@ -80,9 +82,14 @@ document.getElementById("safeBtn").addEventListener("click",function(){
 
 sosCancelled = true;
 
+clearTimeout(timer1);
+clearTimeout(timer2);
+clearTimeout(timer3);
+
 this.style.display="none";
 
 status.innerHTML="🟢 User Safe";
+status.style.color="green";
 
 result.innerHTML="✅ SOS Cancelled";
 
