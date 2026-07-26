@@ -8,6 +8,8 @@ btn.addEventListener("click", function () {
 
     document.getElementById("running").innerHTML = "Running Detected";
     document.getElementById("running").style.color = "red";
+    document.getElementById("risk").innerHTML = "HIGH";
+    document.getElementById("risk").style.color = "red";
     
     setTimeout(function () {
 
