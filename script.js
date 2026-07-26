@@ -10,6 +10,7 @@ btn.addEventListener("click", function () {
     document.getElementById("running").style.color = "red";
     document.getElementById("risk").innerHTML = "HIGH";
     document.getElementById("risk").style.color = "red";
+    document.getElementById("safeBtn").style.display = "inline-block";
     
     setTimeout(function () {
 
@@ -27,6 +28,15 @@ btn.addEventListener("click", function () {
                 
                 status.innerHTML = "🔴 HIGH RISK";
 
+            setTimeout(function(){
+
+                if(document.getElementById("safeBtn").style.display=="none")
+                return;
+
+                document.getElementById("safeBtn").style.display="none";
+
+                 },5000);
+                
                 if (navigator.geolocation) {
 
                     navigator.geolocation.getCurrentPosition(function (position) {
@@ -36,6 +46,7 @@ btn.addEventListener("click", function () {
                         "📍 Latitude: " + position.coords.latitude + "<br>" +
                         "📍 Longitude: " + position.coords.longitude;
 
+                        document.getElementById("contactStatus").innerHTML = "Alert Sent ✅";
                         alert("🚨 Auto SOS Sent!\n📍 Live Location Shared\n📞 Emergency Contact Alerted");
 
                     });
@@ -52,5 +63,15 @@ btn.addEventListener("click", function () {
         }, 2000);
 
     }, 2000);
+
+});
+
+document.getElementById("safeBtn").addEventListener("click",function(){
+
+this.style.display="none";
+
+status.innerHTML="🟢 User Safe";
+
+result.innerHTML="✅ SOS Cancelled";
 
 });
