@@ -6,6 +6,9 @@ btn.addEventListener("click", function () {
 
     status.innerHTML = "🟡 AI Monitoring Started...";
 
+document.getElementById("running").innerHTML = "Running Detected";
+document.getElementById("running").style.color = "red";
+    
     setTimeout(function () {
 
         result.innerHTML = "⚠️ Fall Detected!";
