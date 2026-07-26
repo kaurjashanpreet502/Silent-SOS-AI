@@ -22,7 +22,9 @@ btn.addEventListener("click", function () {
             setTimeout(function () {
 
                 result.innerHTML = "🚨 No Movement Detected!";
-
+                document.getElementById("movement").innerHTML = "No Movement Detected";
+                document.getElementById("movement").style.color = "red"; 
+                
                 status.innerHTML = "🔴 HIGH RISK";
 
                 if (navigator.geolocation) {
