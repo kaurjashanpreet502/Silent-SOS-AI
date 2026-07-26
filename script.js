@@ -18,7 +18,16 @@ btn.addEventListener("click", function () {
 
     document.getElementById("sosTime").innerHTML = new Date().toLocaleTimeString();
     
-    document.getElementById("battery").innerHTML = "85%";
+    if (navigator.getBattery) {
+
+    navigator.getBattery().then(function(battery){
+
+        document.getElementById("battery").innerHTML =
+        Math.round(battery.level * 100) + "%";
+
+    });
+
+}
     
     document.getElementById("running").innerHTML = "Running Detected";
     document.getElementById("confidence").innerHTML = "95%";
@@ -69,6 +78,12 @@ btn.addEventListener("click", function () {
                 "⏰ Time: " + new Date().toLocaleTimeString() +
                 "<br>🔋 Battery: " + document.getElementById("battery").innerHTML +
                 "<br>🤖 AI Confidence: " + document.getElementById("confidence").innerHTML;
+
+                let contact = document.getElementById("emergencyContact").value;
+
+                        if(contact==""){
+                             contact = "Emergency Contact Not Added";
+                        }
                         
                 document.getElementById("messageBox").innerHTML =
                 "📩 Emergency Message Preview:<br><br>" +
@@ -85,7 +100,7 @@ btn.addEventListener("click", function () {
                         "🔋 Battery: " + document.getElementById("battery").innerHTML + "\n" +
                         "🤖 AI Confidence: " + document.getElementById("confidence").innerHTML + "\n" +
                         "⏰ Time: " + new Date().toLocaleTimeString() + "\n\n" +
-                        "📞 Emergency Contact Notified"
+                        "📞 Alert Sent To: " + contact
                             );
                         
                     });
