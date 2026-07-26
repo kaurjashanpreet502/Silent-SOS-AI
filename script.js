@@ -1,4 +1,5 @@
 const btn = document.getElementById("activateBtn");
+console.log(btn);
 const status = document.getElementById("status");
 const result = document.getElementById("result");
 
@@ -7,6 +8,10 @@ let timer1, timer2, timer3;
 
 btn.addEventListener("click", function () {
     sosCancelled = false;
+
+    clearTimeout(timer1);
+    clearTimeout(timer2);
+    clearTimeout(timer3);
 
     status.innerHTML = "🟡 AI Monitoring Started...";
 
@@ -26,37 +31,33 @@ btn.addEventListener("click", function () {
 
         result.innerHTML = "⚠️ Fall Detected!";
 
-   timer2 = setTimeout(function () {
+       timer2 = setTimeout(function () {
 
-            result.innerHTML = "🧍 Checking Movement...";
+                result.innerHTML = "🧍 Checking Movement...";
 
-   timer3 = setTimeout(function () {
+              timer3 = setTimeout(function () {
 
-                result.innerHTML = "🚨 No Movement Detected!";
+                     result.innerHTML = "🚨 No Movement Detected!";
+                  
                 document.getElementById("movement").innerHTML = "No Movement Detected";
                 document.getElementById("movement").style.color = "red"; 
 
                 document.getElementById("confidence").innerHTML = "98%";
                 document.getElementById("prediction").innerHTML = "Emergency Risk Predicted";
+                  
                 status.innerHTML = "🔴 HIGH RISK";
                 status.style.color = "red";
                 
-            setTimeout(function(){
-
-                if(document.getElementById("safeBtn").style.display=="none")
-                return;
-
-                document.getElementById("safeBtn").style.display="none";
-
-                 },5000);
 
                 if(sosCancelled) return;
                 if (navigator.geolocation) {
 
                     navigator.geolocation.getCurrentPosition(function (position) {
 
-                let latitude = position.coords.latitude;
-                let longitude = position.coords.longitude;
+                        if(sosCancelled) return;
+
+                        let latitude = position.coords.latitude;
+                        let longitude = position.coords.longitude;
 
                 let mapLink = "https://www.google.com/maps?q=" + latitude + "," + longitude;
 
@@ -84,6 +85,8 @@ btn.addEventListener("click", function () {
                         "🤖 AI Confidence: " + document.getElementById("confidence").innerHTML + "\n" +
                         "⏰ Time: " + new Date().toLocaleTimeString() + "\n\n" +
                         "📞 Emergency Contact Notified"
+                            );
+                        
                     });
                     
                 } else {
