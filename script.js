@@ -2,6 +2,8 @@ const btn = document.getElementById("activateBtn");
 const status = document.getElementById("status");
 const result = document.getElementById("result");
 
+let sosCancelled = false;
+
 btn.addEventListener("click", function () {
 
     status.innerHTML = "🟡 AI Monitoring Started...";
@@ -41,7 +43,8 @@ btn.addEventListener("click", function () {
                 document.getElementById("safeBtn").style.display="none";
 
                  },5000);
-                
+
+                if(sosCancelled) return;
                 if (navigator.geolocation) {
 
                     navigator.geolocation.getCurrentPosition(function (position) {
@@ -74,6 +77,8 @@ btn.addEventListener("click", function () {
 });
 
 document.getElementById("safeBtn").addEventListener("click",function(){
+
+sosCancelled = true;
 
 this.style.display="none";
 
