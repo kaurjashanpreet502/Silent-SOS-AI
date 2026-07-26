@@ -11,6 +11,9 @@ btn.addEventListener("click", function () {
     document.getElementById("risk").innerHTML = "HIGH";
     document.getElementById("risk").style.color = "red";
     document.getElementById("safeBtn").style.display = "inline-block";
+
+    document.getElementById("risk").classList.add("high-risk");
+    document.getElementById("running").classList.add("high-risk");
     
     setTimeout(function () {
 
