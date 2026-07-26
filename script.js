@@ -15,6 +15,8 @@ btn.addEventListener("click", function () {
     document.getElementById("battery").innerHTML = "85%";
     
     document.getElementById("running").innerHTML = "Running Detected";
+    document.getElementById("confidence").innerHTML = "95%";
+    document.getElementById("prediction").innerHTML = "Suspicious Activity Detected";
     document.getElementById("running").style.color = "red";
     document.getElementById("risk").innerHTML = "HIGH";
     document.getElementById("risk").style.color = "red";
@@ -33,7 +35,9 @@ btn.addEventListener("click", function () {
                 result.innerHTML = "🚨 No Movement Detected!";
                 document.getElementById("movement").innerHTML = "No Movement Detected";
                 document.getElementById("movement").style.color = "red"; 
-                
+
+                document.getElementById("confidence").innerHTML = "98%";
+                document.getElementById("prediction").innerHTML = "Emergency Risk Predicted";
                 status.innerHTML = "🔴 HIGH RISK";
                 status.style.color = "red";
                 
@@ -51,17 +55,29 @@ btn.addEventListener("click", function () {
 
                     navigator.geolocation.getCurrentPosition(function (position) {
 
-                        result.innerHTML =
-                        "🚨 Auto SOS Activated!<br><br>" +
-                        "📍 Latitude: " + position.coords.latitude + "<br>" +
-                        "📍 Longitude: " + position.coords.longitude +
-                        "<br>⏰ Time: " + new Date().toLocaleTimeString() +
-                        "<br>🔋 Battery: " + document.getElementById("battery").innerHTML;
+                let latitude = position.coords.latitude;
+                let longitude = position.coords.longitude;
+
+                let mapLink = "https://www.google.com/maps?q=" + latitude + "," + longitude;
+
+                result.innerHTML =
+                "🚨 Auto SOS Activated!<br><br>" +
+                "📍 Location:<br>" +
+                "<a href='" + mapLink + "' target='_blank'>Open Live Location</a><br><br>" +
+                "⏰ Time: " + new Date().toLocaleTimeString() +
+                "<br>🔋 Battery: " + document.getElementById("battery").innerHTML +
+                "<br>🤖 AI Confidence: " + document.getElementById("confidence").innerHTML;
 
                         document.getElementById("contactStatus").innerHTML = "Alert Sent ✅";
-                        alert("🚨 Auto SOS Sent!\n📍 Live Location Shared\n📞 Emergency Contact Alerted");
-
-                    });
+                        alert(
+                        "🚨 EMERGENCY ALERT SENT\n\n" +
+                        "Possible fall detected.\n" +
+                        "📍 Live Location Shared\n" +
+                        "🔋 Battery: " + document.getElementById("battery").innerHTML + "\n" +
+                        "🤖 AI Confidence: " + document.getElementById("confidence").innerHTML + "\n" +
+                        "⏰ Time: " + new Date().toLocaleTimeString() + "\n\n" +
+                        "📞 Emergency Contact Notified"
+                       );;
 
                 } else {
 
