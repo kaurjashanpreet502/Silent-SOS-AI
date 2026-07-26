@@ -46,6 +46,15 @@ button:hover{
     background:#dc2626;
 }
 
+.high-risk {
+  background-color: red;
+  color: white;
+  border: 2px solid darkred;
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: bold;
+  text-align: center;
+}
 #result{
     margin-top:20px;
     font-size:18px;
