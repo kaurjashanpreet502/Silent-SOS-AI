@@ -59,3 +59,22 @@ button:hover{
     margin-top:20px;
     font-size:18px;
 }
+
+#risk {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+#running,
+#movement {
+  font-weight: bold;
+}
+
+.alert-box {
+  margin-top: 15px;
+  padding: 15px;
+  border-radius: 12px;
+  background: #7f1d1d;
+  color: white;
+  font-weight: bold;
+}
