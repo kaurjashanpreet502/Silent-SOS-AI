@@ -1,3 +1,4 @@
+console.log("Script loaded");
 const btn = document.getElementById("activateBtn");
 console.log(btn);
 const status = document.getElementById("status");
