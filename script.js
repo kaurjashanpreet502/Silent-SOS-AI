@@ -36,7 +36,7 @@ btn.addEventListener("click", function () {
                         "📍 Latitude: " + position.coords.latitude + "<br>" +
                         "📍 Longitude: " + position.coords.longitude;
 
-                        alert("🚨 SOS Sent Successfully!");
+                        alert("🚨 Auto SOS Sent!\n📍 Live Location Shared\n📞 Emergency Contact Alerted");
 
                     });
 
