@@ -57,3 +57,77 @@ if(document.getElementById("running")){
     },10000);
 
 }
+
+// SOS PAGE LOGIC
+
+if(document.getElementById("sosStatus")){
+
+
+document.getElementById("sosTime").innerHTML =
+new Date().toLocaleTimeString();
+
+
+document.getElementById("contactStatus").innerHTML =
+"Alert Sent ✅";
+
+
+document.getElementById("messageBox").innerHTML =
+"📩 Emergency Message Preview:<br><br>" +
+"🚨 Possible emergency detected<br>" +
+"📍 Location shared<br>" +
+"🤖 AI Confidence: 98%";
+
+
+
+if(navigator.geolocation){
+
+navigator.geolocation.getCurrentPosition(function(position){
+
+
+let latitude = position.coords.latitude;
+let longitude = position.coords.longitude;
+
+
+let mapLink =
+"https://www.google.com/maps?q="
++ latitude + "," + longitude;
+
+
+document.getElementById("locationBox").innerHTML =
+"📍 Live Location Shared<br><br>" +
+"<a href='" + mapLink + "' target='_blank'>Open Location</a>";
+
+
+});
+
+
+}
+
+
+
+let safeBtn=document.getElementById("safeBtn");
+
+
+if(safeBtn){
+
+safeBtn.addEventListener("click",function(){
+
+
+document.getElementById("sosStatus").innerHTML =
+"🟢 SOS Cancelled";
+
+
+document.getElementById("contactStatus").innerHTML =
+"Notified - Cancelled";
+
+
+document.getElementById("messageBox").innerHTML =
+"✅ User marked safe. No further action required.";
+
+
+});
+
+}
+
+
+}
