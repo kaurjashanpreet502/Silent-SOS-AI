@@ -195,3 +195,28 @@ document.getElementById("safeBtn").addEventListener("click",function(){
 
 });
 }
+
+// PROFILE SAVE
+
+function saveProfile(){
+
+let name = document.getElementById("userName").value;
+
+let phone = document.getElementById("userPhone").value;
+
+let emergencyName = document.getElementById("emergencyName").value;
+
+let emergencyPhone = document.getElementById("emergencyPhone").value;
+
+
+localStorage.setItem("userName", name);
+localStorage.setItem("userPhone", phone);
+localStorage.setItem("emergencyName", emergencyName);
+localStorage.setItem("emergencyPhone", emergencyPhone);
+
+
+document.getElementById("profileMessage").innerHTML =
+"✅ Profile Saved Successfully";
+
+
+}
