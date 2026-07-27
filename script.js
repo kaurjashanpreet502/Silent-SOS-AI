@@ -131,70 +131,6 @@ document.getElementById("messageBox").innerHTML =
 
 
 }
-// SOS COUNTDOWN LOGIC
-
-if(document.getElementById("countdown")){
-
-let time = 5;
-
-let countdown = document.getElementById("countdown");
-
-countdown.innerHTML = time;
-
-
-let timer = setInterval(function(){
-
-    time--;
-
-    if(time > 0){
-
-        countdown.innerHTML = time;
-
-    }
-
-
-    if(time == 0){
-
-        clearInterval(timer);
-
-
-        document.getElementById("sosStatus").innerHTML =
-        "🔴 SOS ACTIVATED";
-
-
-        countdown.innerHTML =
-        "SOS Sent 🚨";
-
-
-        document.getElementById("messageBox").innerHTML =
-        "📩 Emergency Message Sent ✅<br><br>"+
-        "🚨 Possible emergency detected<br>"+
-        "📍 Location Shared<br>"+
-        "🤖 AI Confidence: 98%";
-
-
-    }
-
-
-},1000);
-
-
-
-document.getElementById("safeBtn").addEventListener("click",function(){
-
-    clearInterval(timer);
-
-
-    document.getElementById("sosStatus").innerHTML =
-    "🟢 SOS Cancelled";
-
-
-    countdown.innerHTML =
-    "User is Safe ✅";
-
-
-});
-}
 
 // PROFILE SAVE
 
@@ -216,5 +152,46 @@ alert("✅ Profile Saved Successfully");
 
 
 window.location.href="index.html";
+
+}
+
+// SOS COUNTDOWN
+
+if(document.getElementById("countdown")){
+
+let time = 5;
+
+let countdown = document.getElementById("countdown");
+
+let timer = setInterval(function(){
+
+    time--;
+
+    if(time > 0){
+
+        countdown.innerHTML = time;
+
+    }
+
+
+    if(time == 0){
+
+        clearInterval(timer);
+
+        countdown.innerHTML = "SOS SENT 🚨";
+
+        document.getElementById("sosStatus").innerHTML =
+        "🔴 SOS ACTIVATED";
+
+
+        document.getElementById("messageBox").innerHTML =
+        "📩 Emergency Message Sent ✅<br><br>"+
+        "🚨 Emergency Detected<br>"+
+        "📍 Location Shared";
+
+
+    }
+
+},1000);
 
 }
