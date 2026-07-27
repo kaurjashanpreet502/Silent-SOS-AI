@@ -200,6 +200,8 @@ document.getElementById("safeBtn").addEventListener("click",function(){
 
 function saveProfile(){
 
+alert("Button working");
+    
 let name = document.getElementById("userName").value;
 
 let phone = document.getElementById("userPhone").value;
