@@ -5,7 +5,31 @@ function startProtection(){
 
     localStorage.setItem("protectionActive","true");
 
-    window.location.href="monitor.html";
+    let status = document.getElementById("status");
+    let result = document.getElementById("result");
+
+    status.innerHTML="🟡 AI Monitoring Started...";
+
+
+    setTimeout(function(){
+
+        status.innerHTML="🔴 HIGH RISK DETECTED";
+        status.style.color="red";
+
+        result.innerHTML=
+        "🚨 Possible Emergency Situation<br><br>"+
+        "🤖 AI Analyzing...<br>"+
+        "Confidence: 98%";
+
+
+    },1000);
+
+
+    setTimeout(function(){
+
+        window.location.href="monitor.html";
+
+    },3000);
 
 }
 
@@ -136,8 +160,11 @@ if(document.getElementById("running")){
     document.getElementById("prediction").innerHTML=
     "Emergency Risk Predicted";
 
-}
 
-    }
+    setTimeout(function(){
+
+        window.location.href="sos.html";
+
+    },10000);
 
 }
