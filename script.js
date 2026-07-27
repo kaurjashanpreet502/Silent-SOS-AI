@@ -1,3 +1,8 @@
+function startProtection(){
+
+window.location.href="monitor.html";
+
+}
 console.log("Silent SOS AI Loaded");
 
 
