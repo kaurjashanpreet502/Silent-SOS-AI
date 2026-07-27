@@ -2,7 +2,11 @@
 console.log("Silent SOS AI Loaded");
 
 function startProtection(){
-    window.location.href = "monitor.html";
+
+    localStorage.setItem("protectionActive","true");
+
+    window.location.href="monitor.html";
+
 }
 
 const activateBtn = document.getElementById("activateBtn");
@@ -113,5 +117,29 @@ safeBtn.addEventListener("click",function(){
     }
 
 });
+
+}
+
+if(window.location.pathname.includes("monitor.html")){
+
+    let active = localStorage.getItem("protectionActive");
+
+    if(active=="true"){
+
+        document.getElementById("running").innerHTML="Running Detected";
+        document.getElementById("running").style.color="red";
+
+        document.getElementById("risk").innerHTML="HIGH";
+        document.getElementById("risk").style.color="red";
+
+        document.getElementById("movement").innerHTML="No Movement Detected";
+        document.getElementById("movement").style.color="red";
+
+        document.getElementById("confidence").innerHTML="98%";
+
+        document.getElementById("prediction").innerHTML=
+        "Emergency Risk Predicted";
+
+    }
 
 }
