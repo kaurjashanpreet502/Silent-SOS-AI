@@ -131,7 +131,6 @@ document.getElementById("messageBox").innerHTML =
 
 
 }
-
 // SOS COUNTDOWN LOGIC
 
 if(document.getElementById("countdown")){
@@ -141,6 +140,7 @@ let time = 5;
 let countdown = document.getElementById("countdown");
 
 countdown.innerHTML = time;
+
 
 let timer = setInterval(function(){
 
@@ -153,12 +153,17 @@ let timer = setInterval(function(){
     }
 
 
-    if(time <= 0){
+    if(time == 0){
 
         clearInterval(timer);
 
+
         document.getElementById("sosStatus").innerHTML =
         "🔴 SOS ACTIVATED";
+
+
+        countdown.innerHTML =
+        "SOS Sent 🚨";
 
 
         document.getElementById("messageBox").innerHTML =
@@ -168,29 +173,6 @@ let timer = setInterval(function(){
         "🤖 AI Confidence: 98%";
 
 
-        document.getElementById("contactStatus").innerHTML =
-        "Alert Sent ✅";
-
-
-        if(navigator.geolocation){
-
-        navigator.geolocation.getCurrentPosition(function(position){
-
-            let lat = position.coords.latitude;
-            let lon = position.coords.longitude;
-
-            let link =
-            "https://www.google.com/maps?q="+lat+","+lon;
-
-
-            document.getElementById("locationBox").innerHTML =
-            "📍 Live Location Shared<br><br>"+
-            "<a href='"+link+"' target='_blank'>Open Location</a>";
-
-        });
-
-        }
-
     }
 
 
@@ -198,12 +180,7 @@ let timer = setInterval(function(){
 
 
 
-let safeBtn = document.getElementById("safeBtn");
-
-
-if(safeBtn){
-
-safeBtn.addEventListener("click",function(){
+document.getElementById("safeBtn").addEventListener("click",function(){
 
     clearInterval(timer);
 
@@ -212,16 +189,9 @@ safeBtn.addEventListener("click",function(){
     "🟢 SOS Cancelled";
 
 
-    document.getElementById("countdown").innerHTML =
-    "User confirmed safe";
-
-
-    document.getElementById("messageBox").innerHTML =
-    "✅ Emergency alert cancelled";
+    countdown.innerHTML =
+    "User is Safe ✅";
 
 
 });
-
-}
-
 }
