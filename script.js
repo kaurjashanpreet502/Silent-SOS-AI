@@ -120,25 +120,23 @@ safeBtn.addEventListener("click",function(){
 
 }
 
-if(window.location.pathname.includes("monitor.html")){
+if(document.getElementById("running")){
 
-    let active = localStorage.getItem("protectionActive");
+    document.getElementById("running").innerHTML="Running Detected";
+    document.getElementById("running").style.color="red";
 
-    if(active=="true"){
+    document.getElementById("risk").innerHTML="HIGH";
+    document.getElementById("risk").style.color="red";
 
-        document.getElementById("running").innerHTML="Running Detected";
-        document.getElementById("running").style.color="red";
+    document.getElementById("movement").innerHTML="No Movement Detected";
+    document.getElementById("movement").style.color="red";
 
-        document.getElementById("risk").innerHTML="HIGH";
-        document.getElementById("risk").style.color="red";
+    document.getElementById("confidence").innerHTML="98%";
 
-        document.getElementById("movement").innerHTML="No Movement Detected";
-        document.getElementById("movement").style.color="red";
+    document.getElementById("prediction").innerHTML=
+    "Emergency Risk Predicted";
 
-        document.getElementById("confidence").innerHTML="98%";
-
-        document.getElementById("prediction").innerHTML=
-        "Emergency Risk Predicted";
+}
 
     }
 
