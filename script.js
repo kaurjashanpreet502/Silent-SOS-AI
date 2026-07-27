@@ -1,4 +1,3 @@
-
 console.log("Silent SOS AI Loaded");
 
 function startProtection(){
@@ -33,23 +32,6 @@ function startProtection(){
 
 }
 
-const safeBtn=document.getElementById("safeBtn");
-
-
-if(safeBtn){
-
-safeBtn.addEventListener("click",function(){
-
-    status.innerHTML="🟢 User Safe";
-    status.style.color="green";
-
-    if(result){
-        result.innerHTML="✅ SOS Cancelled";
-    }
-
-});
-
-}
 
 if(document.getElementById("running")){
 
