@@ -136,16 +136,21 @@ document.getElementById("messageBox").innerHTML =
 
 if(document.getElementById("countdown")){
 
-let time = 10;
+let time = 5;
 
 let countdown = document.getElementById("countdown");
+
+countdown.innerHTML = time;
 
 let timer = setInterval(function(){
 
     time--;
 
-    countdown.innerHTML =
-    "SOS will be sent in " + time + " seconds";
+    if(time > 0){
+
+        countdown.innerHTML = time;
+
+    }
 
 
     if(time <= 0){
