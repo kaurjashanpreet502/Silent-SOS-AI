@@ -90,10 +90,21 @@ No message sent yet.
 </nav>
 
 
+<script>
 
+let contact = localStorage.getItem("emergencyPhone");
+
+if(contact){
+
+document.getElementById("savedContact").innerHTML = contact;
+
+}
+
+</script>
+
+  
 <script src="script.js"></script>
 
 
 </body>
-
 </html>
