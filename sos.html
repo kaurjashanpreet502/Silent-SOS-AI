@@ -21,6 +21,11 @@
 <h1>🚨 Emergency SOS</h1>
 
 
+<h3 id="sosStatus">
+🔴 SOS Activated
+</h3>
+
+
 <p>
 👤 Emergency Contact:
 <span id="contactStatus">
@@ -33,10 +38,9 @@ Ready
 📞 Add Emergency Contact:
 </p>
 
-
 <input 
 type="text" 
-id="emergencyContact" 
+id="emergencyContact"
 placeholder="Enter phone number"
 >
 
@@ -49,10 +53,34 @@ Not Activated
 </p>
 
 
-<div id="messageBox"></div>
+
+<p>
+📍 Live Location:
+</p>
+
+<div id="locationBox">
+Waiting for location...
+</div>
+
+
+
+<div id="messageBox">
+
+📩 Emergency Message Preview:
+<br><br>
+No message sent yet.
+
+</div>
+
+
+
+<button id="safeBtn" style="background:green;">
+✅ I'm Safe
+</button>
 
 
 </div>
+
 
 
 <nav>
@@ -66,6 +94,7 @@ Not Activated
 <a href="settings.html">⚙️ Settings</a>
 
 </nav>
+
 
 
 <script src="script.js"></script>
