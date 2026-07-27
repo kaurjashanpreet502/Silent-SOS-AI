@@ -200,14 +200,9 @@ document.getElementById("safeBtn").addEventListener("click",function(){
 
 function saveProfile(){
 
-alert("Button working");
-    
 let name = document.getElementById("userName").value;
-
 let phone = document.getElementById("userPhone").value;
-
 let emergencyName = document.getElementById("emergencyName").value;
-
 let emergencyPhone = document.getElementById("emergencyPhone").value;
 
 
@@ -217,8 +212,9 @@ localStorage.setItem("emergencyName", emergencyName);
 localStorage.setItem("emergencyPhone", emergencyPhone);
 
 
-document.getElementById("profileMessage").innerHTML =
-"✅ Profile Saved Successfully";
+alert("✅ Profile Saved Successfully");
 
+
+window.location.href="index.html";
 
 }
